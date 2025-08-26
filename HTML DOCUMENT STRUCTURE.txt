@@ -1,0 +1,110 @@
+HTML DOCUMENT STRUCTURE
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <!-- Meta, CSS, Favicon, etc. -->
+</head>
+<body>
+    <header>
+        <!-- Site header, logo, navigation -->
+    </header>
+
+    <nav>
+        <!-- Navigation links -->
+    </nav>
+
+    <main>
+        <!-- Main content of the page -->
+        <article>
+            <!-- Self-contained content, e.g., blog post -->
+        </article>
+
+        <section>
+            <!-- Thematic grouping of content -->
+        </section>
+
+        <aside>
+            <!-- Sidebar or related content -->
+        </aside>
+    </main>
+
+    <footer>
+        <!-- Footer content, copyright, links -->
+    </footer>
+</body>
+</html>
+
+HTML SEMANTICS CHEATSHEET
+
+Document Structure Tags
+----------------------
+<!DOCTYPE html>  - Defines the HTML version
+<html>          - Root element of an HTML page
+<head>          - Metadata, scripts, styles
+<body>          - Content visible on the page
+
+Header & Navigation
+------------------
+<header>        - Introductory content or navigational aids
+<nav>           - Navigation links
+<h1> - <h6>    - Headings, <h1> most important, <h6> least
+
+Content Grouping
+----------------
+<main>          - Main content of the page (unique)
+<section>       - Thematic grouping of content
+<article>       - Independent, self-contained content
+<aside>         - Complementary or sidebar content
+<footer>        - Footer for content or page
+
+Text Content
+------------
+<p>             - Paragraph
+<strong>        - Important text (bold, semantic emphasis)
+<em>            - Emphasized text (italic, semantic emphasis)
+<blockquote>    - Quoted text
+<q>             - Inline quotation
+<code>          - Inline code snippet
+<pre>           - Preformatted text
+
+Lists
+-----
+<ul>            - Unordered list
+<ol>            - Ordered list
+<li>            - List item
+<dl>            - Description list
+<dt>            - Term/name in description list
+<dd>            - Description of term
+
+Links & Media
+-------------
+<a>             - Anchor / hyperlink
+<img>           - Image
+<video>         - Video
+<audio>         - Audio
+<figure>        - Container for media + caption
+<figcaption>    - Caption for <figure>
+
+Forms
+-----
+<form>          - Form container
+<input>         - User input
+<label>         - Label for input
+<textarea>      - Multiline text input
+<button>        - Button
+<select>        - Dropdown menu
+<option>        - Option in dropdown
+
+Tables
+------
+<table>         - Table container
+<thead>         - Table header section
+<tbody>         - Table body section
+<tfoot>         - Table footer section
+<tr>            - Table row
+<th>            - Table header cell
+<td>            - Table data cell
