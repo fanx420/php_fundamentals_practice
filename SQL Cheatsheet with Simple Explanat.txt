@@ -1,0 +1,76 @@
+SQL Cheatsheet with Simple Explanations 📑
+1. Database & Table Basics
+CREATE DATABASE dbname;     -- Make a new database
+USE dbname;                 -- Switch to use this database
+CREATE TABLE users ( ... ); -- Define a new table with columns
+DROP TABLE users;           -- Delete a table completely
+
+
+Think of databases as folders, and tables as spreadsheets inside them.
+
+2. Insert, Update, Delete
+INSERT INTO users (name, age) VALUES ('Alice', 25); -- Add a new row
+UPDATE users SET age = 26 WHERE name = 'Alice';     -- Change data in a row
+DELETE FROM users WHERE id = 3;                     -- Remove a row
+
+
+Insert adds, update edits, delete removes.
+
+3. Select & Filtering
+SELECT * FROM users;                  -- Show all columns and rows
+SELECT name, age FROM users;          -- Show only chosen columns
+SELECT * FROM users WHERE age > 25;   -- Filter rows
+SELECT * FROM users ORDER BY age ASC; -- Sort results
+SELECT * FROM users LIMIT 5;          -- Show only first 5 rows
+
+
+Select is your “search”—pick columns, filter rows, order them, or limit results.
+
+4. Joins
+SELECT u.name, o.item
+FROM users u
+INNER JOIN orders o ON u.id = o.user_id; -- Match rows across tables
+
+
+Joins link related tables: INNER = only matches, LEFT = keep all from left, RIGHT = keep all from right.
+
+5. Aggregations & Grouping
+SELECT COUNT(*) FROM users;                    -- Count rows
+SELECT AVG(age) FROM users;                    -- Find average
+SELECT city, COUNT(*) FROM users GROUP BY city; -- Group rows and summarize
+
+
+Aggregates crunch numbers (count, sum, average). GROUP BY lets you summarize by categories.
+
+6. Subqueries
+SELECT * FROM users
+WHERE age > (SELECT AVG(age) FROM users);
+
+
+A query inside another—useful for comparisons or filtering based on calculated values.
+
+7. Indexes & Keys
+CREATE INDEX idx_email ON users(email); -- Speed up searches
+ALTER TABLE orders
+ADD FOREIGN KEY (user_id) REFERENCES users(id); -- Link tables
+
+
+Indexes are like bookmarks for fast lookups. Keys define relationships between tables.
+
+8. Miscellaneous
+SELECT DISTINCT city FROM users; -- Get unique values
+SELECT name AS username FROM users; -- Rename columns for clarity
+
+
+Distinct avoids duplicates. Aliases give cleaner names.
+
+SELECT name,
+       CASE
+           WHEN age < 18 THEN 'Minor'
+           WHEN age BETWEEN 18 AND 65 THEN 'Adult'
+           ELSE 'Senior'
+       END AS category
+FROM users;
+
+
+CASE is like an “if/else” for labeling data.

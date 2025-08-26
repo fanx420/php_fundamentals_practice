@@ -1,0 +1,146 @@
+1. Encapsulation 🧳
+
+What it suggests:
+Bundle related data (properties) and behavior (methods) together into an object, while restricting direct access to some details.
+
+Example:
+
+class BankAccount {
+  #balance; // private field (encapsulation)
+
+  constructor(owner, initialBalance) {
+    this.owner = owner;
+    this.#balance = initialBalance;
+  }
+
+  deposit(amount) {
+    this.#balance += amount;
+    return this.#balance;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const acc = new BankAccount("Alice", 1000);
+acc.deposit(500);
+console.log(acc.getBalance()); // 1500
+// console.log(acc.#balance); ❌ Error: private field
+
+
+Here, the #balance is hidden—only accessible via methods.
+
+2. Abstraction 🎭
+
+What it suggests:
+Expose only what’s essential to the outside world, while hiding unnecessary complexity. Like driving a car—you don’t need to know how the engine works to use the accelerator.
+
+Example:
+
+class CoffeeMachine {
+  start() {
+    this.#grindBeans();
+    this.#heatWater();
+    console.log("Coffee is ready ☕");
+  }
+
+  // private helper methods
+  #grindBeans() {
+    console.log("Grinding beans...");
+  }
+
+  #heatWater() {
+    console.log("Heating water...");
+  }
+}
+
+const machine = new CoffeeMachine();
+machine.start();
+// machine.#grindBeans(); ❌ Error, hidden
+
+
+The user only calls start(). The messy details are abstracted away.
+
+3. Inheritance 🧬
+
+What it suggests:
+Allow a class (child) to inherit properties and methods from another (parent), reusing code instead of rewriting it.
+
+Example:
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  makeSound() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Dog extends Animal {
+  makeSound() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog("Buddy");
+dog.makeSound(); // Buddy barks.
+
+
+Dog inherits from Animal but overrides behavior.
+
+4. Polymorphism 🎨
+
+What it suggests:
+“Many forms”—methods can behave differently based on the object calling them. It lets you write flexible, reusable code.
+
+Example:
+
+class Shape {
+  area() {
+    return 0;
+  }
+}
+
+class Circle extends Shape {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+  area() {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(width, height) {
+    super();
+    this.width = width;
+    this.height = height;
+  }
+  area() {
+    return this.width * this.height;
+  }
+}
+
+const shapes = [new Circle(5), new Rectangle(4, 6)];
+
+shapes.forEach(shape => {
+  console.log(shape.area()); 
+});
+// Different output depending on the shape type
+
+
+The same area() call behaves differently depending on the object—circle or rectangle.
+
+✨ In short:
+
+Encapsulation: hide data inside objects.
+
+Abstraction: hide complexity, show only essentials.
+
+Inheritance: reuse code by extending classes.
+
+Polymorphism: one interface, many implementations.
